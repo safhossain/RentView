@@ -8,7 +8,8 @@ CREATE TABLE MEMBER (
 	hashed_password VARCHAR(255) NOT NULL,
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(50) NOT NULL,
-	date_of_birth DATE NOT NULL,    
+	date_of_birth DATE NOT NULL,
+        member_type ENUM('manager', 'user') NOT NULL DEFAULT 'user',
 	last_four_digits CHAR(4),
 	card_type VARCHAR(20),
 	expiration_date DATE,
@@ -27,7 +28,8 @@ CREATE TABLE MOVIE (
 	movie_ID INT PRIMARY KEY AUTO_INCREMENT,
 	movie_name VARCHAR(255) NOT NULL,
 	release_year YEAR NOT NULL,
-	rental_cost DECIMAL(10, 2) NOT NULL
+	rental_cost DECIMAL(10, 2) NOT NULL,
+        movie_image_path VARCHAR(255);
 );
 CREATE TABLE MOVIE_DIRECTOR (
 	movie_ID INT AUTO_INCREMENT,
