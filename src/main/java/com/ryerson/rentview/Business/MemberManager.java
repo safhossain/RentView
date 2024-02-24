@@ -11,4 +11,12 @@ public class MemberManager {
         }
         return null;
     }
+//    public static void main(String[] args) {
+//        MemberInfo testEntity = authenticateMember("s2hossain@torontomu.ca", "helloWorld!");
+//        if (testEntity != null) {
+//            System.out.println(testEntity.toString());
+//        } else {
+//            System.out.println("Object is null");
+//        }
+//    }
 }

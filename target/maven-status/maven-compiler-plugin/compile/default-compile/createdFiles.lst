@@ -1,0 +1,4 @@
+com/ryerson/rentview/GUI/LoginServlet.class
+com/ryerson/rentview/Persistence/Member_CRUD.class
+com/ryerson/rentview/Helper/MemberInfo.class
+com/ryerson/rentview/Business/MemberManager.class

@@ -12,7 +12,7 @@
             <button id="home">Home</button>
             <button id="genres">Genres</button>
             <input type="search" id="movie-search" placeholder="Search...">
-                <% 
+            <% 
                 MemberInfo memberInfo = (MemberInfo) session.getAttribute("memberInfo");
                 if (memberInfo != null) {
             %>
