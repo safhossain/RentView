@@ -22,6 +22,7 @@
         <h1>Manager Page</h1>
         <table>
             <tr>
+                <th>Member ID</th>
                 <th>Email</th>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -38,6 +39,7 @@
                     for (MemberInfo user : users) {
             %>
                         <tr>
+                            <td><%= user.getMemberID() %></td>
                             <td><%= user.getEmailAddress() %></td>
                             <td><%= user.getFirstName() %></td>
                             <td><%= user.getLastName() %></td>

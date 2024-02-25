@@ -142,7 +142,7 @@ public class Member_CRUD extends Base_CRUD {
     }
     
     public static void main(String[] args) {
-        Connection con = getCon();        
+        Connection con = getCon();
         if (con != null) {
             try {                
                 //System.out.println(readMember("s2hossain@torontomu.ca").toString());
@@ -153,7 +153,7 @@ public class Member_CRUD extends Base_CRUD {
                 
                 con.close();
             } catch (SQLException e) {
-                System.out.println("con is NULL: " + e);
+                System.out.println("SQL Exception: " + e);
             }
         }
     }

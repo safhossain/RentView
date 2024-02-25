@@ -13,8 +13,8 @@
         <servlet-class>com.ryerson.rentview.GUI.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ManagerUpdateMoviesServlet</servlet-name>
-        <servlet-class>com.ryerson.rentview.GUI.ManagerUpdateMoviesServlet</servlet-class>
+        <servlet-name>MovieManagementServlet</servlet-name>
+        <servlet-class>com.ryerson.rentview.GUI.MovieManagementServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UserManagementServlet</servlet-name>
@@ -27,8 +27,8 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ManagerUpdateMoviesServlet</servlet-name>
-        <url-pattern>/ManagerUpdateMoviesServlet</url-pattern>
+        <servlet-name>MovieManagementServlet</servlet-name>
+        <url-pattern>/MovieManagementServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserManagementServlet</servlet-name>
@@ -38,5 +38,6 @@
         <session-timeout>
             30
         </session-timeout>
+        <url-pattern>/UserManagementServlet.java</url-pattern>
     </session-config>
 </web-app>
