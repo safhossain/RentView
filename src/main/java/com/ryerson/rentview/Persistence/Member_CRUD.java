@@ -1,5 +1,8 @@
 package com.ryerson.rentview.Persistence;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,17 +12,8 @@ import java.sql.Statement;
 
 import com.ryerson.rentview.Helper.MemberInfo;
 
-public class Member_CRUD {
-    private static Connection getCon() {
-        Connection con = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/RENTVIEW?autoReconnect=true&useSSL=false", "root", "student");
-        } catch (Exception e) {
-            System.out.println("CONNECTION failed: " + e);
-        }
-        return con;
-    }
+public class Member_CRUD extends Base_CRUD {    
+    //sql connection stuff inherited from Base_CRUD
     
     /************************************* CRUD OPERATIONS ********************************************/ 
     //overloading create methods
@@ -120,18 +114,43 @@ public class Member_CRUD {
             System.out.println("Delete failed: " + e);
         }
     }
-    /*************************************************************************************************************/   
-
-    public static void main(String[] args) {
+    /*************************************************************************************************************/
+    public static List<MemberInfo> readAllMembers() {
+        List<MemberInfo> members = new ArrayList<>();
         Connection con = getCon();
-        
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM MEMBER");
+            while (rs.next()) {
+                members.add(new MemberInfo(
+                    rs.getInt("member_ID"),
+                    rs.getString("email_address"),
+                    rs.getString("first_name"),
+                    rs.getString("last_name"),
+                    rs.getString("date_of_birth"),
+                    rs.getString("member_type"),
+                    rs.getString("last_four_digits"),
+                    rs.getString("card_type"),
+                    rs.getString("expiration_date")
+                ));
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Query for getting all Members failed: " + e);
+        }
+        return members;
+    }
+    
+    public static void main(String[] args) {
+        Connection con = getCon();        
         if (con != null) {
-            try {
-//                createMember("safhossain338@gmail.com", "whatUpBro123", "Safwan", "Hossain", "2002-10-22", "manager");
-                //System.out.println(getHashedPasswordByEmail("safhossain338@gmail.com"));
-                //deleteMember(3);
-                System.out.println(readMember("s2hossain@torontomu.ca").toString());
-                //updateMember("safhossain338@gmail.com", "email_address", "s2hossain@torontomu.ca");                
+            try {                
+                //System.out.println(readMember("s2hossain@torontomu.ca").toString());
+                List<MemberInfo> members = readAllMembers();
+                for (MemberInfo element : members) {
+                    System.out.println(element);
+                }
+                
                 con.close();
             } catch (SQLException e) {
                 System.out.println("con is NULL: " + e);

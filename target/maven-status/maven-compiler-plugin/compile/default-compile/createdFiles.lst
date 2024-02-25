@@ -1,5 +1,11 @@
 com/ryerson/rentview/Helper/EncryptionUtil.class
+com/ryerson/rentview/GUI/UserManagementServlet.class
+com/ryerson/rentview/Persistence/Base_CRUD.class
+com/ryerson/rentview/Helper/MemberInfo.class
+com/ryerson/rentview/GUI/ManagerUpdateMoviesServlet.class
+com/ryerson/rentview/Persistence/Movie_CRUD.class
 com/ryerson/rentview/GUI/LoginServlet.class
 com/ryerson/rentview/Persistence/Member_CRUD.class
-com/ryerson/rentview/Helper/MemberInfo.class
+com/ryerson/rentview/GUI/ManagerAccessFilter.class
+com/ryerson/rentview/Helper/MovieInfo.class
 com/ryerson/rentview/Business/MemberManager.class

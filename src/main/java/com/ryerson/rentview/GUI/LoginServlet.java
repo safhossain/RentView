@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("memberInfo", memberInfo);
             if ("manager".equals(memberInfo.getMemberType())) {
-                response.sendRedirect("manager.jsp");
+                response.sendRedirect("UserManagementServlet");
             } else {
                 response.sendRedirect("index.jsp");
             }

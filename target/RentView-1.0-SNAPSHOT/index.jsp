@@ -12,7 +12,7 @@
         <header>
             <nav>
                 <form action="index.jsp">
-                        <button type="submit">Home</button>
+                    <button type="submit">Home</button>
                 </form>
                 <button id="genres">Genres</button>
                 <input type="search" id="movie-search" placeholder="Search...">
@@ -20,10 +20,17 @@
                     MemberInfo memberInfo = (MemberInfo) session.getAttribute("memberInfo");
                     if (memberInfo != null) {
                 %>
+                    <span>Welcome, <%= memberInfo.getFirstName() %></span>
                     <button id="profile">Profile</button>
-                    <button id="logout">
-                        <a href="logout.jsp">Logout</a>
-                    </button>
+                    <form action="logout.jsp">
+                        <button type="submit">Logout</button>
+                    </form>
+                    <% if (memberInfo.getMemberType().equals("manager")){ %>
+                        <form action="UserManagementServlet" method="GET">
+                            <button type="submit">ADMIN TOOLS</button>
+                        </form>
+                    <% } %>
+                    
                 <% } else { %>
                     <form action="login.jsp">
                         <button type="submit">Login</button>

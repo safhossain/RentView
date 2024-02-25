@@ -7,9 +7,9 @@ INSERT INTO MEMBER (email_address, hashed_password, first_name, last_name, date_
     VALUES
     ('safhossain338@gmail.com', '98ab44a8', 'Safwan', 'Hossain', '2002-10-22', 'manager'),
     ('s2hossain@torontomu.ca', '15d0cbde', 'admin', 'admin', '2000-10-21', 'manager'),
-    ('alice@example.com', '2f0e8570', 'Alice', 'Wonder', '1990-05-15', 'user'),
-    ('BobJohn@example.com', '531142f', 'Bob', 'John', '1985-01-30', 'user'),
-    ('CBrown@example.com', 'dcbca3ba', 'Chris', 'Brown', '1989-05-05', 'user'),
+    ('alice@example.com', '2f0e8570', 'Alice', 'Wonder', '1990-05-15', 'user', '1234', 'Visa', '2025-12-31'),
+    ('BobJohn@example.com', '531142f', 'Bob', 'John', '1985-01-30', 'user', '5678', 'MasterCard', '2024-11-30'),
+    ('CBrown@example.com', 'dcbca3ba', 'Chris', 'Brown', '1989-05-05', 'user', '9012', 'Amex', '2023-09-15'),
     ('D1Wilson@example.com', 'f0772152', 'Derek', 'Wilson', '1992-08-24', 'user'),
     ('ethan69@example.com', '97319cf0', 'Ethan', 'Smith', '2000-03-12', 'user');
 

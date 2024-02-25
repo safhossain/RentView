@@ -17,6 +17,5 @@ public class EncryptionUtil {
         System.out.println("('CBrown@example.com', '" + hashPassword("CBrown@example.com", "rihanna") + "', 'Chris', 'Brown', '1989-05-05', 'user'),");
         System.out.println("('D1Wilson@example.com', '" + hashPassword("D1Wilson@example.com", "nfl69") + "', 'Derek', 'Wilson', '1992-08-24', 'user'),");
         System.out.println("('ethan69@example.com', '" + hashPassword("ethan69@example.com", "pen15") + "', 'Ethan', 'Smith', '2000-03-12', 'user'),");
-
     }
 }
