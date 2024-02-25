@@ -26,16 +26,14 @@ public class LoginServlet extends HttpServlet {
         if (memberInfo != null) {
             HttpSession session = request.getSession();
             session.setAttribute("memberInfo", memberInfo);
-            response.sendRedirect("index.jsp");
+            if ("manager".equals(memberInfo.getMemberType())) {
+                response.sendRedirect("manager.jsp");
+            } else {
+                response.sendRedirect("index.jsp");
+            }
         } else {
             response.sendRedirect("login.jsp?error=Invalid credentials");
         }
-//        String email = request.getParameter("email");
-//        String password = request.getParameter("password");
-//        
-//        System.out.println("Email: " + email);
-//        System.out.println("Password: " + password);
-//        response.sendRedirect("login.jsp");
     }
 
     @Override

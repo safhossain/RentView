@@ -5,7 +5,7 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class MemberInfo {
-    private int memberId;
+    private int memberID;
     private String emailAddress;
     private String firstName;
     private String lastName;
@@ -15,7 +15,7 @@ public class MemberInfo {
     private int age;
 
     public MemberInfo(int memberId, String emailAddress, String firstName, String lastName, String dateOfBirthString, String memberType) {
-        this.memberId = memberId;
+        this.memberID = memberId;
         this.emailAddress = emailAddress;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,8 +26,8 @@ public class MemberInfo {
     }
 
     // Getters
-    public int getMemberId() {
-        return this.memberId;
+    public int getMemberID() {
+        return this.memberID;
     }
 
     public String getEmailAddress() {
@@ -57,7 +57,7 @@ public class MemberInfo {
     @Override
     public String toString() {
         return "MemberInfo{" +
-                "memberId=" + memberId +
+                "memberId=" + memberID +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -68,8 +68,8 @@ public class MemberInfo {
     }
 
     // Setters
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
+    public void setMemberID(int memberID) {
+        this.memberID = memberID;
     }
 
     public void setEmailAddress(String emailAddress) {

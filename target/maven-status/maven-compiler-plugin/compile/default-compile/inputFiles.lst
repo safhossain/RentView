@@ -1,4 +1,5 @@
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Helper/MemberInfo.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/GUI/LoginServlet.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Business/MemberManager.java
+/home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Helper/EncryptionUtil.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Persistence/Member_CRUD.java

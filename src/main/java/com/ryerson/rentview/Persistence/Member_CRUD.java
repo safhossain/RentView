@@ -130,8 +130,8 @@ public class Member_CRUD {
 //                createMember("safhossain338@gmail.com", "whatUpBro123", "Safwan", "Hossain", "2002-10-22", "manager");
                 //System.out.println(getHashedPasswordByEmail("safhossain338@gmail.com"));
                 //deleteMember(3);
-                //System.out.println(readMember("safhossain338@gmail.com").toString());
-                updateMember("safhossain338@gmail.com", "email_address", "s2hossain@torontomu.ca");
+                System.out.println(readMember("s2hossain@torontomu.ca").toString());
+                //updateMember("safhossain338@gmail.com", "email_address", "s2hossain@torontomu.ca");                
                 con.close();
             } catch (SQLException e) {
                 System.out.println("con is NULL: " + e);
