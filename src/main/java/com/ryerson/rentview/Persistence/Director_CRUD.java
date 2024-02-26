@@ -6,11 +6,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Director_CRUD extends Base_CRUD {
 
+    /************************************* CRUD OPERATIONS ********************************************/ 
     public static void createDirector(String firstName, String lastName) {
         Connection con = getCon();
         try {
@@ -20,7 +23,7 @@ public class Director_CRUD extends Base_CRUD {
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException e) {
-            System.out.println("Insert failed: " + e);
+            System.out.println("createDirector Insert failed: " + e);
         }
     }
 
@@ -68,6 +71,7 @@ public class Director_CRUD extends Base_CRUD {
             System.out.println("Delete failed: " + e);
         }
     }
+    /*************************************************************************************************/
 
     public static List<DirectorInfo> readAllDirectors() {
         List<DirectorInfo> directors = new ArrayList<>();
@@ -88,6 +92,40 @@ public class Director_CRUD extends Base_CRUD {
         }
         return directors;
     }
+    
+    public static int getDirectorID(String firstName, String lastName) {
+        Connection con = getCon();
+        try {
+            PreparedStatement pstmt = con.prepareStatement("SELECT director_ID FROM DIRECTOR WHERE first_name = ? AND last_name = ?");
+            pstmt.setString(1, firstName);
+            pstmt.setString(2, lastName);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("director_ID");
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e);
+        }
+        return -1; // Return -1 if no director is found or if there's an error
+    }
+
+    // Method to get the ID of the last inserted director
+    public static int getLastInsertedDirectorID() {
+        Connection con = getCon();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT LAST_INSERT_ID() AS last_id");
+            if (rs.next()) {
+                return rs.getInt("last_id");
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e);
+        }
+        return -1; // Return -1 if no ID is found or if there's an error
+    }
+    
     public static void main(String[] args) {
         Connection con = getCon();
         if (con != null) {

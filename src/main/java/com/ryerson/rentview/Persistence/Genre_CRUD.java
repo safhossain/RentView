@@ -5,12 +5,14 @@ import com.ryerson.rentview.Helper.GenreInfo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Genre_CRUD extends Base_CRUD {
 
+    /************************************* CRUD OPERATIONS ********************************************/ 
     public static void createGenre(String genreType) {
         Connection con = getCon();
         try {
@@ -19,7 +21,7 @@ public class Genre_CRUD extends Base_CRUD {
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException e) {
-            System.out.println("Insert failed: " + e);
+            System.out.println("createGenre Insert failed: " + e);
         }
     }
 
@@ -66,7 +68,7 @@ public class Genre_CRUD extends Base_CRUD {
             System.out.println("Delete failed: " + e);
         }
     }
-
+    /*************************************************************************************************/
     public static List<GenreInfo> readAllGenres() {
         List<GenreInfo> genres = new ArrayList<>();
         Connection con = getCon();
@@ -84,6 +86,38 @@ public class Genre_CRUD extends Base_CRUD {
             System.out.println("Query for getting all genres failed: " + e);
         }
         return genres;
+    }
+    
+    public static int getGenreID(String genreType) {
+        Connection con = getCon();
+        try {
+            PreparedStatement pstmt = con.prepareStatement("SELECT genre_ID FROM GENRE WHERE genre_type = ?");
+            pstmt.setString(1, genreType);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("genre_ID");
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e);
+        }
+        return -1; // Return -1 if no genre is found or if there's an error
+    }
+
+    // Method to get the ID of the last inserted genre
+    public static int getLastInsertedGenreID() {
+        Connection con = getCon();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT LAST_INSERT_ID() AS last_id");
+            if (rs.next()) {
+                return rs.getInt("last_id");
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e);
+        }
+        return -1; // Return -1 if no ID is found or if there's an error
     }
     
     public static void main(String[] args) {

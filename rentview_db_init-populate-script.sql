@@ -39,17 +39,17 @@ INSERT INTO GENRE (genre_type)
 
 INSERT INTO MOVIE (movie_name, release_year, rental_cost, movie_image_path, is_movie_featured)
     VALUES
-    ('Lord of the Rings Fellowship of the Ring', 2001, 3.99, 'resources/movie_posters/lord_of_the_rings_fellowship_of_the_ring.jpg', TRUE),
-    ('Harry Potter', 2001, 2.99, 'resources/movie_posters/harry_potter.jpg', TRUE),
-    ('Little Women', 2019, 3.49, 'resources/movie_posters/little_women.jpg', TRUE),
-    ('Home Alone', 1990, 1.99, 'resources/movie_posters/home_alone.jpg', FALSE),
-    ('Finding Nemo', 2003, 2.49, 'resources/movie_posters/finding_nemo.jpg', FALSE),
-    ('Forrest Gump', 1994, 2.99, 'resources/movie_posters/forrest_gump.jpg', FALSE),
-    ('Toy Story', 1995, 2.99, 'resources/movie_posters/toy_story.jpg', FALSE),
-    ('The Matrix', 1999, 3.99, 'resources/movie_posters/the_matrix.jpg', FALSE),
-    ('Inception', 2010, 3.99, 'resources/movie_posters/inception.jpg', FALSE),
-    ('The Lion King', 1994, 2.99, 'resources/movie_posters/the_lion_king.jpg', FALSE),
-    ('Oppenheimer', 2023, 4.99, 'resources/movie_posters/oppenheimer.jpg', TRUE);
+    ('Lord of the Rings Fellowship of the Ring', 2001, 3.99, '/resources/movie_posters/lord_of_the_rings_fellowship_of_the_ring.jpg', TRUE),
+    ('Harry Potter', 2001, 2.99, '/resources/movie_posters/harry_potter.jpg', TRUE),
+    ('Little Women', 2019, 3.49, '/resources/movie_posters/little_women.jpg', TRUE),
+    ('Home Alone', 1990, 1.99, '/resources/movie_posters/home_alone.jpg', FALSE),
+    ('Finding Nemo', 2003, 2.49, '/resources/movie_posters/finding_nemo.jpg', FALSE),
+    ('Forrest Gump', 1994, 2.99, '/resources/movie_posters/forrest_gump.jpg', FALSE),
+    ('Toy Story', 1995, 2.99, '/resources/movie_posters/toy_story.jpg', FALSE),
+    ('The Matrix', 1999, 3.99, '/resources/movie_posters/the_matrix.jpg', FALSE),
+    ('Inception', 2010, 3.99, '/resources/movie_posters/inception.jpg', FALSE),
+    ('The Lion King', 1994, 2.99, '/resources/movie_posters/the_lion_king.jpg', FALSE),
+    ('Oppenheimer', 2023, 4.99, '/resources/movie_posters/oppenheimer.jpg', TRUE);
 
 INSERT INTO MOVIE_DIRECTOR (movie_ID, director_ID)
     VALUES
