@@ -7,10 +7,10 @@
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Persistence/Movie_Director_CRUD.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Persistence/Director_CRUD.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Helper/MovieInfo.java
+/home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Business/MovieManagement.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/GUI/LoginServlet.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Helper/GenreInfo.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/GUI/MovieServlet.java
-/home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Business/MovieManagment.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/GUI/ManagerAccessFilter.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/Helper/EncryptionUtil.java
 /home/student/NetBeansProjects/RentView/src/main/java/com/ryerson/rentview/GUI/MovieManagementServlet.java

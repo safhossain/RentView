@@ -18,20 +18,27 @@ import java.util.ArrayList;
 public class Movie_CRUD extends Base_CRUD{    
     
     /************************************* CRUD OPERATIONS ********************************************/ 
-    public static void createMovie(String movieName, int releaseYear, double rentalCost, String movieImagePath, boolean isMovieFeatured) {
+    public static int createMovie(String movieName, int releaseYear, double rentalCost, String movieImagePath, boolean isMovieFeatured) {
         Connection con = getCon();
+        int movieID = -1;
         try {
-            PreparedStatement pstmt = con.prepareStatement("INSERT INTO MOVIE (movie_name, release_year, rental_cost, movie_image_path, is_movie_featured) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement pstmt = con.prepareStatement("INSERT INTO MOVIE (movie_name, release_year, rental_cost, movie_image_path, is_movie_featured) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, movieName);
             pstmt.setInt(2, releaseYear);
             pstmt.setDouble(3, rentalCost);
             pstmt.setString(4, movieImagePath);
             pstmt.setBoolean(5, isMovieFeatured);
             pstmt.executeUpdate();
+
+            ResultSet rs = pstmt.getGeneratedKeys();
+            if (rs.next()) {
+                movieID = rs.getInt(1);
+            }
             con.close();
         } catch (SQLException e) {
-            System.out.println("createMovie Insert failed: " + e);
+            System.out.println("Insert failed: " + e);
         }
+        return movieID;
     }
     
     public static MovieInfo readMovie(int movieId) {
@@ -193,6 +200,29 @@ public class Movie_CRUD extends Base_CRUD{
             System.out.println("Query failed: " + e);
         }
         return genres;
+    }
+    
+    public static List<MovieInfo> getAllMovies() {
+        List<MovieInfo> movies = new ArrayList<>();
+        Connection con = getCon();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM MOVIE");
+            while (rs.next()) {
+                movies.add(new MovieInfo(
+                    rs.getInt("movie_ID"),
+                    rs.getString("movie_name"),
+                    rs.getInt("release_year"),
+                    rs.getDouble("rental_cost"),
+                    rs.getString("movie_image_path"),
+                    rs.getBoolean("is_movie_featured")
+                ));
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e);
+        }
+        return movies;
     }
     
     public static void main(String[] args) {

@@ -6,8 +6,7 @@
         <title>RentView</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="styles.css">
-    </head>
-    
+    </head>    
     <body>
         <header>
             <nav>
@@ -71,8 +70,8 @@
         <footer>
             <nav>
                 <button onclick="window.scrollTo(0, 0);">scroll to top</button>
-                <a href="#terms">terms & conditions</a>
-                <a href="#about">about us</a>
+                <a href="#terms">Terms & conditions</a>
+                <a href="#about">About us</a>
                 <a href="#support">Support</a>
             </nav>
         </footer>

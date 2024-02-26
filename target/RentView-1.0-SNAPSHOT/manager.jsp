@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ryerson.rentview.Helper.MemberInfo"%>
+<%@page import="com.ryerson.rentview.Helper.MovieInfo"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -76,5 +77,55 @@
             </select>
             <button type="submit">Add User</button>
         </form>
+        
+        </table>
+        <!-- ------------------------------------------------------------ -->
+        <h2>Movies</h2>
+        <table>
+            <tr>
+                <th>Movie ID</th>
+                <th>Movie Name</th>
+                <th>Release Year</th>
+                <th>Rental Cost</th>
+                <th>Movie Image Path</th>
+                <th>Is Movie Featured</th>
+            </tr>
+            <% 
+                List<MovieInfo> movies = (List<MovieInfo>) request.getAttribute("movies");
+                if (movies != null) {
+                    for (MovieInfo movie : movies) {
+            %>
+                        <tr>
+                            <td><%= movie.getMovieID() %></td>
+                            <td><%= movie.getMovieName() %></td>
+                            <td><%= movie.getReleaseYear() %></td>
+                            <td><%= movie.getRentalCost() %></td>
+                            <td><%= movie.getMovieImagePath() %></td>
+                            <td><%= movie.isMovieFeatured() ? "Yes" : "No" %></td>
+                        </tr>
+            <% 
+                    }
+                }
+            %>
+        </table>
+        
+        <h2>Add Movie</h2>
+        <form action="MovieManagementServlet" method="post">
+            <input type="hidden" name="action" value="add">
+            <input type="text" name="movieName" placeholder="Movie Name">
+            <input type="text" name="releaseYear" placeholder="Release Year">
+            <input type="text" name="rentalCost" placeholder="Rental Cost">
+            <input type="text" name="movieImagePath" placeholder="Movie Image Path">
+            <select name="isMovieFeatured">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select>
+            <input type="text" name="directorFirstName" placeholder="Director First Name">
+            <input type="text" name="directorLastName" placeholder="Director Last Name">
+            <input type="text" name="genre1" placeholder="Genre 1">
+            <input type="text" name="genre2" placeholder="Genre 2">
+            <button type="submit">Add Movie</button>
+        </form>
+        
     </body>
 </html>
